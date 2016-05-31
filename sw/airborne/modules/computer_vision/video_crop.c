@@ -31,7 +31,7 @@
 
 uint16_t Wcrop = 124;
 uint16_t Hcrop = 96;
-static struct image_t *imgCrop = NULL;
+struct image_t *imgCrop = NULL;
 // Function
 bool_t video_crop_func(struct image_t* img);
 bool_t video_crop_func(struct image_t* img)
@@ -39,6 +39,7 @@ bool_t video_crop_func(struct image_t* img)
   uint8_t *imgbuf = img->buf;
 
   if (imgCrop == NULL) {
+    imgCrop = malloc(sizeof(struct image_t));
     image_create(imgCrop,Wcrop,Hcrop,IMAGE_YUV422);
   }
 

@@ -8,7 +8,7 @@
   <header>
     <file name="video_crop.h"/>
   </header>
-  <init fun="video_crop_func()"/>
+  <init fun="video_crop_init()"/>
   <makefile>
     <file name="video_crop.c"/>
   </makefile>

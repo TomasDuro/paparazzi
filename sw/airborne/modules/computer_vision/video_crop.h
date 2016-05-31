@@ -26,6 +26,8 @@
 #ifndef VIDEOCROP_H
 #define VIDEOCROP_H
 
+extern struct image_t *imgCrop;
+
 extern void video_crop_init(void);
 
 #endif
