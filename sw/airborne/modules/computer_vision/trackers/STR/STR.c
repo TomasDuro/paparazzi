@@ -1,5 +1,5 @@
 /*
- * Copyright (C) Tomás Duro
+ * Copyright (C) TomásDuro
  *
  * This file is part of paparazzi
  *
@@ -18,18 +18,34 @@
  * <http://www.gnu.org/licenses/>.
  */
 /**
- * @file "modules/computer_vision/trackers/KCF.h"
- * @author Tomás Duro
- * KCF tracker implementation.http://www.robots.ox.ac.uk/~joao/circulant/
+ * @file "modules/computer_vision/trackers/STR/STR.c"
+ * @author TomásDuro
+ * KCF tracker implementation.http://www.samhare.net/research/struck
  */
 
-#ifndef KCF_H
-#define KCF_H
-
+#include "modules/computer_vision/trackers/STR/STR.h"
 #include "modules/computer_vision/cv.h"
+#include "subsystems/datalink/telemetry.h"
+#include <std.h>
 
-bool_t KCF_func(struct image_t* unimg);
+// BOUNDING BOX RESULT
+extern int Xa;
+extern int Ya;
+extern int Wa;
+extern int Ha;
 
-extern void KCF_init(void);
+extern int initKey;
 
-#endif
+// STRuck TRACKER FUNCTION
+int STRuck(struct image_t* unimg);
+
+bool_t STR_func(struct image_t* unimg)
+{
+  STRuck(imgCrop);
+  return FALSE;
+}
+
+void STR_init(void)
+{
+  cv_add(STR_func);
+}

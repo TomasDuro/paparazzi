@@ -18,12 +18,12 @@
 * <http://www.gnu.org/licenses/>.
 */
 /**
-* @file "modules/computer_vision/trackers/KCF.c"
+* @file "modules/computer_vision/trackers/KCF/KCF.c"
 * @author Tomás Duro
 * KCF tracker implementation.http://www.robots.ox.ac.uk/~joao/circulant/
 */
 
-#include "modules/computer_vision/trackers/KCF.h"
+#include "modules/computer_vision/trackers/KCF/KCF.h"
 #include "modules/computer_vision/cv.h"
 #include "subsystems/datalink/telemetry.h"
 #include <stdio.h>
