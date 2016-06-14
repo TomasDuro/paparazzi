@@ -27,10 +27,11 @@
 #include <stdlib.h>
 #include <std.h>
 // #include "subsystems/datalink/telemetry.h"
-// #include <stdio.h>
+#include <stdio.h>
 
 uint16_t Wcrop = 124;
 uint16_t Hcrop = 96;
+uint16_t displacement = 52;//52 parece ser bom!
 struct image_t *imgCrop = NULL;
 // Function
 bool_t video_crop_func(struct image_t* img);
@@ -47,17 +48,29 @@ bool_t video_crop_func(struct image_t* img)
 
   for (uint16_t y = 0; y < Hcrop; y++) {
   for (uint16_t x = 0; x < Wcrop; x += 2) {
-      //CROPS A CENTERED Hcrop BY Wcrop IMAGE
+      // //CROPS A CENTERED Hcrop BY Wcrop IMAGE
+      // //CROP INTO THE CORNER OF THE ORIGINAL IMAGE
+      // imgbuf[y*img->w*2+x*2]   = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2];
+      // imgbuf[y*img->w*2+x*2+1] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+1];
+      // imgbuf[y*img->w*2+x*2+2] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+2];
+      // imgbuf[y*img->w*2+x*2+3] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+3];
+      // //CROP INTO NEW IMAGE
+      // imgCropbuf[y*Wcrop*2+x*2]   = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2];
+      // imgCropbuf[y*Wcrop*2+x*2+1] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+1];
+      // imgCropbuf[y*Wcrop*2+x*2+2] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+2];
+      // imgCropbuf[y*Wcrop*2+x*2+3] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+3];
+      //
+      //CROPS A UNCENTERED Hcrop BY Wcrop IMAGE
       //CROP INTO THE CORNER OF THE ORIGINAL IMAGE
-      imgbuf[y*img->w*2+x*2]   = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2];
-      imgbuf[y*img->w*2+x*2+1] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+1];
-      imgbuf[y*img->w*2+x*2+2] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+2];
-      imgbuf[y*img->w*2+x*2+3] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+3];
+      imgbuf[y*img->w*2+x*2]   = imgbuf[img->w*2*((img->h-Hcrop)/2-displacement+y)+(img->w-Wcrop)+x*2];
+      imgbuf[y*img->w*2+x*2+1] = imgbuf[img->w*2*((img->h-Hcrop)/2-displacement+y)+(img->w-Wcrop)+x*2+1];
+      imgbuf[y*img->w*2+x*2+2] = imgbuf[img->w*2*((img->h-Hcrop)/2-displacement+y)+(img->w-Wcrop)+x*2+2];
+      imgbuf[y*img->w*2+x*2+3] = imgbuf[img->w*2*((img->h-Hcrop)/2-displacement+y)+(img->w-Wcrop)+x*2+3];
       //CROP INTO NEW IMAGE
-      imgCropbuf[y*Wcrop*2+x*2]   = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2];
-      imgCropbuf[y*Wcrop*2+x*2+1] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+1];
-      imgCropbuf[y*Wcrop*2+x*2+2] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+2];
-      imgCropbuf[y*Wcrop*2+x*2+3] = imgbuf[img->w*2*((img->h-Hcrop)/2+y)+(img->w-Wcrop)+x*2+3];
+      imgCropbuf[y*Wcrop*2+x*2]   = imgbuf[img->w*2*((img->h-Hcrop)/2-displacement+y)+(img->w-Wcrop)+x*2];
+      imgCropbuf[y*Wcrop*2+x*2+1] = imgbuf[img->w*2*((img->h-Hcrop)/2-displacement+y)+(img->w-Wcrop)+x*2+1];
+      imgCropbuf[y*Wcrop*2+x*2+2] = imgbuf[img->w*2*((img->h-Hcrop)/2-displacement+y)+(img->w-Wcrop)+x*2+2];
+      imgCropbuf[y*Wcrop*2+x*2+3] = imgbuf[img->w*2*((img->h-Hcrop)/2-displacement+y)+(img->w-Wcrop)+x*2+3];
     }
   }
   // DOESNT WORK REUSING THE SAME IMAGE BECAUSE RESIZING CAUSES PROBLEMS WITH THE NEXT FRAME
@@ -72,3 +85,10 @@ void video_crop_init(void)
 {
   cv_add(video_crop_func);
 }
+
+
+// bool video_crop_onboard_init(void)
+// {
+//   cv_add(video_crop_func);
+//   return FALSE;
+// }

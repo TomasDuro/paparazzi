@@ -8,7 +8,7 @@
   <header>
     <file name="KCF.h"/>
   </header>
-  <init fun="KCF_init()"/>
+  <!-- <init fun="KCF_init()"/> -->
   <makefile>
     <file name="KCF.c"/>
     <file name="KCFmain.cpp"/>

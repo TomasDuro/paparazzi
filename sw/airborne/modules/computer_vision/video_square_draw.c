@@ -26,11 +26,14 @@
 #include "modules/computer_vision/video_square_draw.h"
 #include "modules/computer_vision/cv.h"
 #include <std.h>
+#include <stdio.h>
 
 int Xa;
 int Ya;
 int Wa;
 int Ha;
+
+extern int isalreadyinit = 1;
 
 bool_t video_square_draw_func(struct image_t* img);
 bool_t video_square_draw_func(struct image_t* img)
@@ -40,6 +43,15 @@ bool_t video_square_draw_func(struct image_t* img)
   // Ya = 25;
   // Wa = 16;
   // Ha = 35;
+
+  if(isalreadyinit)
+  {
+    Xa = 53;
+    Ya = 20;
+    Wa = 20;
+    Ha = 40;
+    isalreadyinit = 0;
+  }
 
   //LOOP TO DRAW THE SQUARE
   uint8_t *imgbuf = img->buf;
@@ -67,3 +79,9 @@ bool_t video_square_draw_func(struct image_t* img)
     {
       cv_add(video_square_draw_func);
     }
+
+    // bool video_square_draw_onboard_init(void)
+    // {
+    //   cv_add(video_square_draw_func);
+    //   return FALSE;
+    // }

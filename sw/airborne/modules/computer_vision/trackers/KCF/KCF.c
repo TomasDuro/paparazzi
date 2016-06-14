@@ -47,7 +47,13 @@ bool_t KCF_func(struct image_t* unimg)
   return FALSE;
 }
 
-void KCF_init(void)
+// void KCF_init(void)
+// {
+//   cv_add(KCF_func);
+// }
+
+bool KCF_onboard_init(void)
 {
   cv_add(KCF_func);
+  return FALSE;
 }

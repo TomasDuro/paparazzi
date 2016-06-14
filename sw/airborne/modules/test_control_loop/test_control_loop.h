@@ -1,5 +1,5 @@
 /*
- * Copyright (C) Tomas Duro
+ * Copyright (C) TomasDuro
  *
  * This file is part of paparazzi
  *
@@ -18,23 +18,22 @@
  * <http://www.gnu.org/licenses/>.
  */
 /**
- * @file "modules/computer_vision/video_square_draw.h"
- * @author Tomas Duro
- * Draw a square on a the frames from the video camera.
+ * @file "modules/test_control_loop/test_control_loop.h"
+ * @author TomasDuro
+ *
  */
 
-#ifndef VIDEOSQUAREDRAW_H
-#define VIDEOSQUAREDRAW_H
+#ifndef TEST_CONTROL_LOOP_H
+#define TEST_CONTROL_LOOP_H
 
+#include <stdio.h>
+#include <stdint.h>
 #include <stdbool.h>
 
-// extern int Xa;
-// extern int Ya;
-// extern int Wa;
-// extern int Ha;
+// extern void test_control_loop_func(void);
 
-extern void video_square_draw_init(void);
+extern bool control_switch(void);
 
-// extern bool video_square_draw_onboard_init(void);
+void test_control_loop_init(void);
 
 #endif

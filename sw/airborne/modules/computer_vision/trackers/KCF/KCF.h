@@ -30,6 +30,8 @@
 
 bool_t KCF_func(struct image_t* unimg);
 
-extern void KCF_init(void);
+// extern void KCF_init(void);
+
+extern bool KCF_onboard_init(void);
 
 #endif

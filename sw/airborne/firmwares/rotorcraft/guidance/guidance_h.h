@@ -61,6 +61,8 @@
 #define GUIDANCE_H_MODE_FLIP        9
 #define GUIDANCE_H_MODE_GUIDED      10
 
+// Variaveis do tomás
+extern int32_t heading_TommyDrone;
 
 struct HorizontalGuidanceSetpoint {
   /** horizontal position setpoint in NED.

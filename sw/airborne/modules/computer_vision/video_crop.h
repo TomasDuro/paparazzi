@@ -26,8 +26,12 @@
 #ifndef VIDEOCROP_H
 #define VIDEOCROP_H
 
+#include <stdbool.h>
+
 extern struct image_t *imgCrop;
 
 extern void video_crop_init(void);
+
+// extern bool video_crop_onboard_init(void);
 
 #endif

@@ -7,15 +7,22 @@
 #include <dirent.h>
 #include "modules/computer_vision/lib/vision/image.h"
 #include "kcftracker.hpp"
+#include <stdio.h>
 
 using namespace std;
 using namespace cv;
 
 //INITIAL BOUNDING BOX
-int Xa = 50;
-int Ya = 20;
-int Wa = 20;
-int Ha = 40;
+int Xa;
+int Ya;
+int Wa;
+int Ha;
+
+//ORIGINAL
+// int Xa = 50;
+// int Ya = 20;
+// int Wa = 20;
+// int Ha = 40;
 
 int initKey = 0;
 
@@ -76,6 +83,7 @@ int KCF(struct image_t* img)
 	//TRACKER MAIN LOOP
 	if (initKey > 30)
 	{
+		printf("%d\n",initKey);
 		if (isFirstTime)
 		{
 			tracker.init(Rect(Xa,Ya,Wa,Ha),image);
