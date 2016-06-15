@@ -39,7 +39,7 @@ $(TARGET).srcs +=  $(SRC_BOARD)/video.c
 
 # Link static (Done for GLIBC)
 $(TARGET).CFLAGS += -DLINUX_LINK_STATIC
-$(TARGET).LDFLAGS += -static
+#$(TARGET).LDFLAGS += -static
 
 # limit main loop to 1kHz so ap doesn't need 100% cpu
 #$(TARGET).CFLAGS += -DLIMIT_EVENT_POLLING

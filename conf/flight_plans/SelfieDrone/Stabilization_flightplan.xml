@@ -6,7 +6,7 @@
 #include "subsystems/ahrs.h"
 #include "subsystems/electrical.h"
 #include "subsystems/datalink/datalink.h"
-#include "modules/TomasDuro/KCFcpp/KCFmod.h"
+#include "modules/computer_vision/trackers/KCF/KCF.h"
 </header>
 <waypoints>
     <waypoint height="0" name="HOME" x="0.0" y="0.0"/>

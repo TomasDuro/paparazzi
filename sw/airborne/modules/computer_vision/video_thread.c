@@ -112,6 +112,8 @@ static void *video_thread_function(void *data)
     uint32_t dt_us = sys_time_elapsed_us(&time_prev, &time_now);
     time_prev = time_now;
 
+    vid->fps=10;
+
     // sleep remaining time to limit to specified fps
     if (vid->fps != 0) {
       uint32_t fps_period_us = (uint32_t)(1000000. / (float)vid->fps);
@@ -122,7 +124,8 @@ static void *video_thread_function(void *data)
                 vid->w, vid->h, vid->fps, 1000000.f / dt_us);
       }
     }
-
+    fprintf(stderr, "video_thread with size %d %d: desired %i fps, only managing %.1f fps\n",
+            vid->w, vid->h, vid->fps, 1000000.f / dt_us);
     // Wait for a new frame (blocking)
     struct image_t img;
     v4l2_image_get(vid->thread.dev, &img);

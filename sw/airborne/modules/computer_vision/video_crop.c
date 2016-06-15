@@ -34,8 +34,8 @@ uint16_t Hcrop = 96;
 uint16_t displacement = 52;//52 parece ser bom!
 struct image_t *imgCrop = NULL;
 // Function
-bool_t video_crop_func(struct image_t* img);
-bool_t video_crop_func(struct image_t* img)
+struct image_t* video_crop_func(struct image_t* img);
+struct image_t* video_crop_func(struct image_t* img)
 {
   uint8_t *imgbuf = img->buf;
 
@@ -78,12 +78,14 @@ bool_t video_crop_func(struct image_t* img)
   // img->h = Hcrop;
   // img->buf_size = Wcrop*Hcrop*2;
   // img->buf = realloc(img->buf, img->buf_size);
-  return FALSE;
+  return imgCrop;
+  // return img;
 }
 
 void video_crop_init(void)
 {
-  cv_add(video_crop_func);
+  // cv_add(video_crop_func);
+  cv_add_to_device(&CAMERA,video_crop_func);
 }
 
 

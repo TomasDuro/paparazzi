@@ -34,8 +34,10 @@
  int Xa;
  int Wa;
 
- bool_t test_control_loop_func(struct image_t* img);
- bool_t test_control_loop_func(struct image_t* img)
+ // bool_t test_control_loop_func(struct image_t* img);
+ // bool_t test_control_loop_func(struct image_t* img)
+ struct image_t* test_control_loop_func(struct image_t* img);
+ struct image_t* test_control_loop_func(struct image_t* img)
  {
    //ARRANJAR SOLUOES PARA OS INTS
    float error;
@@ -88,7 +90,7 @@
     //  heading_TommyDrone = stateGetNedToBodyEulers_i()->psi;
     heading_TommyDrone = 0;
    }
-   return FALSE;
+   return NULL; //NOT RETURNING AN IMAGE BECAUSE IT IS THE LAST MODULE
  }
 
  bool control_switch(void)
@@ -99,5 +101,6 @@
 
  void test_control_loop_init(void)
  {
-   cv_add(test_control_loop_func);
+  //  cv_add(test_control_loop_func);
+   cv_add_to_device(&CAMERA,test_control_loop_func);
  }

@@ -35,8 +35,10 @@ int Ha;
 
 extern int isalreadyinit = 1;
 
-bool_t video_square_draw_func(struct image_t* img);
-bool_t video_square_draw_func(struct image_t* img)
+// bool_t video_square_draw_func(struct image_t* img);
+// bool_t video_square_draw_func(struct image_t* img)
+struct image_t* video_square_draw_func(struct image_t* img);
+struct image_t* video_square_draw_func(struct image_t* img)
 {
   // // Square parameters are extern, they can be hardcoded:
   // Xa = 40;
@@ -72,12 +74,13 @@ bool_t video_square_draw_func(struct image_t* img)
           imgbuf += 4;
         }
       }
-      return FALSE;
+      return img;
     }
 
     void video_square_draw_init(void)
     {
-      cv_add(video_square_draw_func);
+      // cv_add(video_square_draw_func);
+      cv_add_to_device(&CAMERA,video_square_draw_func);
     }
 
     // bool video_square_draw_onboard_init(void)

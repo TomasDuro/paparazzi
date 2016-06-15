@@ -44,6 +44,8 @@
 #include "firmwares/rotorcraft/stabilization/stabilization_none.h"
 #include "firmwares/rotorcraft/stabilization/stabilization_attitude.h"
 
+#include "firmwares/rotorcraft/stabilization/stabilization_rate.c" //??????TODO????????TODO
+
 #if USE_STABILIZATION_RATE
 #include "firmwares/rotorcraft/stabilization/stabilization_rate.h"
 #endif

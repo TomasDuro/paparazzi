@@ -28,7 +28,8 @@
 
 #include "modules/computer_vision/cv.h"
 
-bool_t KCF_func(struct image_t* unimg);
+//bool_t KCF_func(struct image_t* unimg);
+struct image_t* KCF_func(struct image_t* unimg);
 
 // extern void KCF_init(void);
 

@@ -41,10 +41,11 @@ extern int initKey;
 // KCF TRACKER FUNCTION
 int KCF(struct image_t* img);
 
-bool_t KCF_func(struct image_t* unimg)
+//bool_t KCF_func(struct image_t* unimg)
+struct image_t* KCF_func(struct image_t* unimg)
 {
   KCF(imgCrop);
-  return FALSE;
+  return unimg;
 }
 
 // void KCF_init(void)
@@ -54,6 +55,7 @@ bool_t KCF_func(struct image_t* unimg)
 
 bool KCF_onboard_init(void)
 {
-  cv_add(KCF_func);
+  // cv_add(KCF_func);
+  cv_add_to_device(&CAMERA,KCF_func);
   return FALSE;
 }

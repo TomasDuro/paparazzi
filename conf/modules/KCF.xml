@@ -15,8 +15,8 @@
     <file name="kcftracker.cpp"/>
     <file name="fhog.cpp"/>
     <flag name="CXXFLAGS" value="I/usr/include/eigen3/"/>
-    <flag name="CXXFLAGS" value="I/home/colera/MEGAsync/paparazzi/sw/airborne/"/>
-    <flag name="CXXFLAGS" value="I/home/colera/MEGAsync/paparazzi/sw/airborne/modules/digital_cam/catia"/>
+    <flag name="CXXFLAGS" value="I$(PAPARAZZI_HOME)/sw/airborne/"/>
+    <flag name="CXXFLAGS" value="I$(PAPARAZZI_HOME)/sw/airborne/modules/digital_cam/catia"/>
     <flag name="CXXFLAGS" value="I$(PAPARAZZI_HOME)/sw/ext/opencv_bebop/install/include/"/>
     <flag name="LDFLAGS" value="L$(PAPARAZZI_HOME)/sw/ext/opencv_bebop/install/lib" />
   	<flag name="LDFLAGS" value="lopencv_imgcodecs" />
