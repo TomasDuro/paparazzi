@@ -1,5 +1,5 @@
 /*
- * Copyright (C) Tomás Duro
+ * Copyright (C) Tomas Duro
  *
  * This file is part of paparazzi
  *
@@ -18,21 +18,20 @@
  * <http://www.gnu.org/licenses/>.
  */
 /**
- * @file "modules/computer_vision/trackers/KCF/KCF.h"
- * @author Tomás Duro
- * KCF tracker implementation.http://www.robots.ox.ac.uk/~joao/circulant/
+ * @file "modules/selfie_drone_guided_mode_control/guided_mode_control.h"
+ * @author Tomas Duro
+ * Feed the control commands to the drone through the autopilot guided mode
  */
 
-#ifndef KCF_H
-#define KCF_H
+#ifndef GUIDED_MODE_CONTROL_H
+#define GUIDED_MODE_CONTROL_H
 
-#include "modules/computer_vision/cv.h"
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
 
-//bool_t KCF_func(struct image_t* unimg);
-struct image_t* KCF_func(struct image_t* unimg);
-
-extern void KCF_init(void);
-
-extern bool KCF_onboard_init(void);
+void guided_mode_control_init(void);
+bool change_to_guided(void);
+bool change_back(void);
 
 #endif

@@ -47,11 +47,19 @@
   <load name="KCF.xml">
     <define name="CAMERA" value="front_camera"/>
   </load>
-  <!-- <load name="STR.xml"/> -->
   <load name="video_square_draw.xml">
     <define name="CAMERA" value="front_camera"/>
   </load>
-  <load name="test_control_loop.xml">
+  <load name="selfie_drone_yaw_controller.xml">
+    <define name="CAMERA" value="front_camera"/>
+  </load>
+  <load name="selfie_drone_waypoint_generator.xml">
+    <define name="CAMERA" value="front_camera"/>
+  </load>
+  <load name="selfie_drone_altitude_controller.xml">
+    <define name="CAMERA" value="front_camera"/>
+  </load>
+  <load name="guided_mode_control.xml">
     <define name="CAMERA" value="front_camera"/>
   </load>
   <load name="video_rtp_stream.xml">
@@ -263,7 +271,8 @@
 <section name="AUTOPILOT">
   <define name="MODE_STARTUP" value="AP_MODE_NAV"/>
   <define name="MODE_MANUAL" value="AP_MODE_ATTITUDE_DIRECT"/>
-  <define name="MODE_AUTO1" value="AP_MODE_ATTITUDE_Z_HOLD"/>
+  <!-- <define name="MODE_AUTO1" value="AP_MODE_ATTITUDE_Z_HOLD"/> -->
+  <define name="MODE_AUTO1" value="AP_MODE_GUIDED"/>
   <define name="MODE_AUTO2" value="AP_MODE_NAV"/>
   <define name="NO_RC_THRUST_LIMIT" value="TRUE"/>
 </section>

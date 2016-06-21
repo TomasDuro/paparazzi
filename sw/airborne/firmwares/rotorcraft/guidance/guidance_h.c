@@ -425,8 +425,8 @@ void guidance_h_run(bool  in_flight)
         guidance_h_update_reference();
 
         /* set psi command */
-        // guidance_h.sp.heading = nav_heading;//TODO: CENAS AQUI
-        guidance_h.sp.heading = heading_TommyDrone;//TODO: CENAS AQUI
+        guidance_h.sp.heading = nav_heading;//TODO: CENAS AQUI
+        // guidance_h.sp.heading = heading_TommyDrone;//TODO: CENAS AQUI
         INT32_ANGLE_NORMALIZE(guidance_h.sp.heading);
 #if GUIDANCE_INDI
         guidance_indi_run(in_flight, guidance_h.sp.heading);

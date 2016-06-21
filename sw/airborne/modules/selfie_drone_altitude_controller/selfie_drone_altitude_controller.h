@@ -1,5 +1,5 @@
 /*
- * Copyright (C) Tomás Duro
+ * Copyright (C) Tomas Duro
  *
  * This file is part of paparazzi
  *
@@ -18,21 +18,20 @@
  * <http://www.gnu.org/licenses/>.
  */
 /**
- * @file "modules/computer_vision/trackers/KCF/KCF.h"
- * @author Tomás Duro
- * KCF tracker implementation.http://www.robots.ox.ac.uk/~joao/circulant/
+ * @file "modules/selfie_drone_altitude_controller/selfie_drone_altitude_controller.h"
+ * @author Tomas Duro
+ * Altitude controller for the selfie drone
  */
 
-#ifndef KCF_H
-#define KCF_H
+#ifndef SELFIE_DRONE_ALTITUDE_CONTROLLER_H
+#define SELFIE_DRONE_ALTITUDE_CONTROLLER_H
 
-#include "modules/computer_vision/cv.h"
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
 
-//bool_t KCF_func(struct image_t* unimg);
-struct image_t* KCF_func(struct image_t* unimg);
+// extern bool control_switch_vertical(void);
 
-extern void KCF_init(void);
-
-extern bool KCF_onboard_init(void);
+void altitude_controller_init(void);
 
 #endif

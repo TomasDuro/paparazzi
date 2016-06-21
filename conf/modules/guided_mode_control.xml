@@ -1,0 +1,14 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="guided_mode_control" dir="selfie_drone_guided_mode_control">
+  <doc>
+    <description>Feed the control commands to the drone through the autopilot guided mode</description>
+  </doc>
+  <header>
+    <file name="guided_mode_control.h"/>
+  </header>
+  <init fun="guided_mode_control_init()"/>
+  <makefile>
+    <file name="guided_mode_control.c"/>
+  </makefile>
+</module>

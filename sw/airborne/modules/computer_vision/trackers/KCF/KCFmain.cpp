@@ -81,7 +81,7 @@ int KCF(struct image_t* img)
 	}
 
 	//TRACKER MAIN LOOP
-	if (initKey > 30)
+	if (initKey)
 	{
 		printf("%d\n",initKey);
 		if (isFirstTime)
@@ -99,10 +99,5 @@ int KCF(struct image_t* img)
 			Ha = result.height;
 		}
 	}
-	else
-	{
-		initKey++;
-	}
-
 	return 1;
 }

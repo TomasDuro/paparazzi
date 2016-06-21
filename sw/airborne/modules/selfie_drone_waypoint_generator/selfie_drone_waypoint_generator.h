@@ -1,5 +1,5 @@
 /*
- * Copyright (C) TomasDuro
+ * Copyright (C) Tomas Duro
  *
  * This file is part of paparazzi
  *
@@ -18,13 +18,15 @@
  * <http://www.gnu.org/licenses/>.
  */
 /**
- * @file "modules/test_control_loop/test_control_loop.h"
- * @author TomasDuro
- *
+ * @file "modules/selfie_drone_waypoint_generator/selfie_drone_waypoint_generator.h"
+ * @author Tomas Duro
+ * Calculates waypoints in order to maintain the aircraft close to the person it is following
  */
 
-#ifndef TEST_CONTROL_LOOP_H
-#define TEST_CONTROL_LOOP_H
+#ifndef SELFIE_DRONE_WAYPOINT_GENERATOR_H
+#define SELFIE_DRONE_WAYPOINT_GENERATOR_H
+
+// extern void waypoint_generator_init();
 
 #include <stdio.h>
 #include <stdint.h>
@@ -32,8 +34,9 @@
 
 // extern void test_control_loop_func(void);
 
-extern bool control_switch(void);
+// extern bool control_switch_horizontal(void);
 
-void test_control_loop_init(void);
+void waypoint_generator_init(void);
+
 
 #endif

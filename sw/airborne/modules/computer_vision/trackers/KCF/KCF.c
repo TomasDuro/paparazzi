@@ -48,14 +48,13 @@ struct image_t* KCF_func(struct image_t* unimg)
   return unimg;
 }
 
-// void KCF_init(void)
-// {
-//   cv_add(KCF_func);
-// }
+void KCF_init(void)
+{
+  cv_add_to_device(&CAMERA,KCF_func);
+}
 
 bool KCF_onboard_init(void)
 {
-  // cv_add(KCF_func);
-  cv_add_to_device(&CAMERA,KCF_func);
+  initKey = 1;
   return FALSE;
 }

@@ -78,10 +78,15 @@
 
     <!-- BLOCKS TO INIT -->
     <block name="INIT">
-      <!-- <call fun="video_crop_onboard_init()"/> -->
       <call fun="KCF_onboard_init()"/>
-      <!-- <call fun="video_square_draw_onboard_init()"/> -->
-      <call fun="control_switch()"/>
+      <deroute block="Standby"/>
+    </block>
+    <block name="CHANGE MODE GUIDED">
+      <call fun="change_to_guided()"/>
+      <deroute block="Standby"/>
+    </block>
+    <block name="CHANGE MODE NAV">
+      <call fun="change_back()"/>
       <deroute block="Standby"/>
     </block>
     <!-- END BLOCKS TO INIT -->
